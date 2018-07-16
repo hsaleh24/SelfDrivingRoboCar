@@ -1,0 +1,17 @@
+red = 5v
+black = grnd
+
+green = pulse (signal)
+yellow = input (signal)
+
+blue = grnd (signal)
+
+
+(***Might change white and orange later...)
+
+white = control (e.g. enable - chose this colour b/c white usually neutral and control can either by high or low)
+
+orange = 3.3 v (ALWAYS - whether its const or signal)
+
+=======================
+Unassigned: brown, purple
