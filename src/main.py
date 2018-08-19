@@ -1,12 +1,10 @@
 import RPi.GPIO as GPIO
 import time
 
-
+# Define consts
 ENABLE = 13
-
 ECHO = 14
 TRIG = 15
-
 SERVO = 12 #PWM pin
 
 def Main():
@@ -21,7 +19,7 @@ def TestMotor():
     GPIO.output(ENABLE, GPIO.HIGH)
     GPIO.output(19, GPIO.HIGH)
     GPIO.output(26, GPIO.LOW)
-    time.sleep(10)
+    time.sleep(5)
     GPIO.output(ENABLE, GPIO.LOW)
     GPIO.output(19, GPIO.LOW)
     GPIO.output(26, GPIO.LOW)
@@ -38,8 +36,11 @@ def GPIOSetup():
     GPIO.setup(19, GPIO.OUT) # 1 of 2 input pins
     GPIO.setup(26, GPIO.OUT) # 2 of 2 input pins
 
-    # SERVO CONTROL
-    GPIO.setup(SERVO, GPIO.OUT) # SIGNAL to control angle (PWM)
+    # SERVO CONTROL (PWM)
+    GPIO.setup(SERVO, GPIO.OUT) # SERVO PIN
+    servo = GPIO.PWM(SERVO, 1000) # Frequency
+    #servo.start(50) # Duty cycle
+    #time.sleep(3)
 
     # DISTANCE SENSOR
     GPIO.setup(ECHO, GPIO.IN)  # ECHO PIN
